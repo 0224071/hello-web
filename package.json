@@ -7,8 +7,9 @@
   "scripts": {
     "web": "pnpm --filter @app/web",
     "web-static": "pnpm --filter @app/web-static",
-    "lint": "eslint . --fix",
-    "stylelint": "stylelint \"**/*.{scss,vue,css}\" --fix",
+    "lint": "run-p lint:script lint:style",
+    "lint:script": "eslint . --fix",
+    "lint:style": "stylelint \"**/*.{scss,vue,css}\" --fix",
     "prepare": "simple-git-hooks"
   },
   "keywords": [],
@@ -17,6 +18,7 @@
   "devDependencies": {
     "@hello-web/eslint-config": "workspace:^",
     "lint-staged": "^15.2.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
     "simple-git-hooks": "^2.11.1",
     "stylelint": "^16.3.1",
