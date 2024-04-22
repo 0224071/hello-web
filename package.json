@@ -7,6 +7,7 @@
   "scripts": {
     "web": "pnpm --filter @app/web",
     "web-static": "pnpm --filter @app/web-static",
+    "vitepress": "pnpm --filter @app/hello-web-docs",
     "lint": "run-p lint:script lint:style",
     "lint:script": "eslint . --fix",
     "lint:style": "stylelint \"**/*.{scss,vue,css}\" --fix",
