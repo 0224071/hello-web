@@ -39,4 +39,25 @@ export default antfu({
      */
     markdown: 'prettier',
   },
+}, {
+  // Remember to specify the file glob here, otherwise it might cause the vue plugin to handle non-vue files
+  files: ['**/*.vue'],
+  rules: {
+    // https://eslint.vuejs.org/rules/block-lang.html
+    'vue/block-lang': [
+      'error',
+      {
+        script: {
+          lang: 'ts',
+        },
+        style: {
+          lang: 'scss',
+        },
+      },
+    ],
+    // https://eslint.vuejs.org/rules/require-prop-types.html
+    'vue/require-prop-types': 'error',
+    // https://future-architect.github.io/eslint-plugin-vue-scoped-css/rules/enforce-style-type.html
+    'vue-scoped-css/enforce-style-type': 'error',
+  },
 })

@@ -1,0 +1,35 @@
+# Dockerfile
+# 1st 使用 node 作為 base image
+FROM node:18.17.1-slim as build
+
+WORKDIR /app
+
+# Copy root package.json and lockfile
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+
+# Copy target package.json
+COPY ./@app/web/package.json ./@app/web/package.json
+
+# 安裝pnpm
+RUN npm install -g pnpm
+
+# Copy app source
+COPY . .
+
+# 安裝 dependencies
+RUN pnpm install
+
+# 指定建立build output資料夾
+RUN pnpm web build
+
+# 2nd 使用 node 作為 base image
+FROM node:18.17.1-slim
+
+WORKDIR /app
+
+COPY --from=BUILD /app/@app/web/.output .
+
+EXPOSE 80
+
+# 修改此權限，確保可以執行
+CMD ["sh", "-c", "NITRO_PORT=80 node server/index.mjs"]

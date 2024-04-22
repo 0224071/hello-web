@@ -5,12 +5,15 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "turbo:dev": "npx turbo run dev",
+    "turbo:build": "npx turbo run build",
     "web": "pnpm --filter @app/web",
     "web-static": "pnpm --filter @app/web-static",
     "vitepress": "pnpm --filter @app/hello-web-docs",
     "lint": "run-p lint:script lint:style",
     "lint:script": "eslint . --fix",
     "lint:style": "stylelint \"**/*.{scss,vue,css}\" --fix",
+    "lint:script-inspector": "npx @eslint/config-inspector",
     "prepare": "simple-git-hooks"
   },
   "keywords": [],

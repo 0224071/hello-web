@@ -1,0 +1,39 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "pipeline": {
+        "build": {
+            "dependsOn": [
+                "^build",
+                "type-check"
+            ],
+            "outputs": [
+                "dist/**",
+                ".output/**",
+                "**/.vitepress/dist/**"
+            ]
+        },
+        "generate": {
+            "dependsOn": [
+                "^generate"
+            ],
+            "outputs": [
+                "dist/**",
+                ".output/**"
+            ]
+        },
+        "//#lint": {
+            "outputs": []
+        },
+        "type-check": {
+            "outputs": []
+        },
+        "deploy": {
+            "dependsOn": [
+                "build","lint","type-check"
+            ]
+        },
+        "dev": {
+            "cache": false
+        }
+    }
+}
