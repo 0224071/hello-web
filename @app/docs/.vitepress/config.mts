@@ -20,7 +20,7 @@ export default defineConfig({
       { text: '首頁', link: '/' },
       { text: '技術文章', link: '/deep-cant-use-with-fragments-and-teleport' },
     ],
-
+    // 文章側邊欄
     sidebar: [
       {
         text: '技術文章',
@@ -30,6 +30,9 @@ export default defineConfig({
         ],
       },
     ],
+
+    // TOC
+    outline: 'deep',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
     ],
