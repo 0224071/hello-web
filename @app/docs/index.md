@@ -4,15 +4,15 @@ layout: home
 
 hero:
   name: "Hello 網頁"
-  text: "紀錄一些技術開發事"
-  tagline: 討厭兩種人，一種是心得寫一半的人，另外一半是...
+  text: "這裡放一些技術筆記"
+  tagline: 討厭兩種人，一種是寫一半的人，另外一半是...
   actions:
     - theme: brand
       text: 開始
-      link: /markdown-examples
+      link: /deep-cant-use-with-fragments-and-teleport
     - theme: alt
       text: 其他
-      link: /api-examples
+      link: /404
 
 features:
 #   - title: 這個人很懶，這裡甚麼都沒寫
