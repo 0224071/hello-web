@@ -16,6 +16,8 @@ const isShow = defineModel<boolean>('isShow', {
 </template>
 
 <style lang="scss" scoped>
+@use 'sass:color';
+
 .content {
   color: red;
 }

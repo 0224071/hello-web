@@ -32,6 +32,8 @@ const parentScopedAttribute = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+@use 'sass:color';
+
 .content {
   color: red;
 }
