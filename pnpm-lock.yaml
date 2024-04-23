@@ -88,6 +88,9 @@ importers:
       '@vitejs/plugin-vue':
         specifier: ^5.0.4
         version: 5.0.4(vite@5.2.10)(vue@3.4.23)
+      sass:
+        specifier: ^1.75.0
+        version: 1.75.0
       vite:
         specifier: ^5.2.0
         version: 5.2.10(sass@1.75.0)

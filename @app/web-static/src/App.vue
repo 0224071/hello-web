@@ -12,9 +12,6 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
-  <div class="text-red-50 bg-custom-100">
-    123
-  </div>
 </template>
 
 <style lang="scss" scoped>
