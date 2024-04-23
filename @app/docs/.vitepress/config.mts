@@ -6,8 +6,8 @@ export default defineConfig({
   titleTemplate: ':title - Hello Web',
   description: '網頁技術文章',
   head: [
-    ['link', { rel: 'icon', href: '/manifest/favicon.ico' }],
-    ['link', { rel: 'manifest', href: '/manifest/site.webmanifest' }],
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'manifest', href: '/site.webmanifest' }],
     ['meta', { name: 'author', content: 'Hello Web' }],
     ['meta', { name: 'keywords', content: '前端, 網頁, 技術部落格, Vue, JavaScript' }],
   ],
