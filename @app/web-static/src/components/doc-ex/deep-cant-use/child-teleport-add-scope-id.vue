@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useScopeId } from '@/composables/doc-ex/use-scope-id'
+import { useScopeId } from '../../../composables/doc-ex/use-scope-id'
 
 const isShow = defineModel<boolean>('isShow', {
   required: true,
