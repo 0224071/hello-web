@@ -17,7 +17,7 @@ import HelloWorld from './components/HelloWorld.vue'
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .logo {
   height: 6em;
   padding: 1.5em;

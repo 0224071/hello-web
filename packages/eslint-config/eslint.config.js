@@ -58,6 +58,6 @@ export default antfu({
     // https://eslint.vuejs.org/rules/require-prop-types.html
     'vue/require-prop-types': 'error',
     // https://future-architect.github.io/eslint-plugin-vue-scoped-css/rules/enforce-style-type.html
-    'vue-scoped-css/enforce-style-type': 'error',
+    // 'vue-scoped-css/enforce-style-type': 'error',
   },
 })

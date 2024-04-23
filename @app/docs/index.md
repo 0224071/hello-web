@@ -15,6 +15,6 @@ hero:
       link: /api-examples
 
 features:
-  - title:
-    details:
+#   - title: 這個人很懶，這裡甚麼都沒寫
+
 ---
