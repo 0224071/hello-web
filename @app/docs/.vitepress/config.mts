@@ -8,8 +8,11 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['link', { rel: 'manifest', href: '/site.webmanifest' }],
-    ['meta', { name: 'author', content: 'Hello Web' }],
-    ['meta', { name: 'keywords', content: '前端, 網頁, 技術部落格, Vue, JavaScript' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:title', content: 'VitePress | Vite & Vue Powered Static Site Generator' }],
+    ['meta', { property: 'og:site_name', content: 'Hello Web' }],
+    ['meta', { property: 'og:image', content: '/apple-touch-icon.png' }],
+    ['meta', { property: 'og:url', content: 'https://hello-web-docs-nu.vercel.app/' }],
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
