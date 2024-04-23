@@ -31,13 +31,13 @@ export default defineConfig({
     ],
     /** 本地搜尋 */
     search: {
-    //   provider: 'local',
-      provider: 'algolia',
-      options: {
-        appId: '1B7KUMWSIR',
-        apiKey: '28d78ddebb3cc285c6398fe631445cd7',
-        indexName: 'Hello Web',
-      },
+      provider: 'local',
+    //   provider: 'algolia',
+    //   options: {
+    //     appId: '1B7KUMWSIR',
+    //     apiKey: '28d78ddebb3cc285c6398fe631445cd7',
+    //     indexName: 'Hello Web',
+    //   },
     },
   },
 })
