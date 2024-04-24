@@ -27,6 +27,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: '解決子元件有多元素和 Teleport 在 root 時，父組件會無法使用 :deep() 去附加樣式', link: '/deep-cant-use-with-fragments-and-teleport' },
+          { text: 'pnpm-workspace 建立 monorepo', link: '/pnpm-workspace-monorepo' },
         ],
       },
     ],
