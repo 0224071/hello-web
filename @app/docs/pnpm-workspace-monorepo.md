@@ -329,3 +329,10 @@ pnpm lint
 ### 建立 vitepress 應用
 
 ### 建立 storybook
+
+## [Playground](https://stackblitz.com/edit/stackblitz-starters-nyfcpg?file=package.json)
+
+## 參考資料
+
+- [pnpm 管理專案 - monorepo](https://tzulinchang.medium.com/pnpm-%E7%AE%A1%E7%90%86%E5%B0%88%E6%A1%88-monorepo-96babcd1f1a6)
+- [TypeScript Monorepo Setup with PNPM Workspaces, Vite, VueJS and TailwindCSS](https://www.youtube.com/watch?v=HM03XGVlRXI)
