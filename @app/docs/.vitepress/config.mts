@@ -1,4 +1,27 @@
+import { URL, fileURLToPath } from 'node:url'
 import { defineConfig } from 'vitepress'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import Components from 'unplugin-vue-components/vite'
+import { generateSidebar } from 'vitepress-sidebar'
+
+/**
+ * sidebar 選項
+ * https://vitepress-sidebar.jooy2.com/api
+ */
+const vitepressSidebarOptions = {
+  // 使用文件標題作為標題
+  useTitleFromFileHeading: true,
+  // 排除文件
+  excludeFiles: ['404.md'],
+  // 摺疊選單
+  collapsed: false,
+  // 摺疊根組。有 highlighted 效果
+  rootGroupCollapsed: false,
+  // 根據標題數字排序
+  sortMenusOrderNumericallyFromTitle: true,
+  capitalizeFirst: true,
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -21,16 +44,7 @@ export default defineConfig({
       { text: '技術文章', link: '/deep-cant-use-with-fragments-and-teleport' },
     ],
     // 文章側邊欄
-    sidebar: [
-      {
-        text: '技術文章',
-        collapsed: false,
-        items: [
-          { text: '解決子元件有多元素和 Teleport 在 root 時，父組件會無法使用 :deep() 去附加樣式', link: '/deep-cant-use-with-fragments-and-teleport' },
-          { text: 'pnpm-workspace 建立 monorepo', link: '/pnpm-workspace-monorepo' },
-        ],
-      },
-    ],
+    sidebar: generateSidebar(vitepressSidebarOptions),
 
     // TOC
     outline: 'deep',
@@ -40,12 +54,12 @@ export default defineConfig({
     /** 本地搜尋 */
     search: {
       provider: 'local',
-    //   provider: 'algolia',
-    //   options: {
-    //     appId: '1B7KUMWSIR',
-    //     apiKey: '28d78ddebb3cc285c6398fe631445cd7',
-    //     indexName: 'Hello Web',
-    //   },
+      //   provider: 'algolia',
+      //   options: {
+      //     appId: '1B7KUMWSIR',
+      //     apiKey: '28d78ddebb3cc285c6398fe631445cd7',
+      //     indexName: 'Hello Web',
+      //   },
     },
     /** 上次更新時間 */
     lastUpdated: {
@@ -62,4 +76,35 @@ export default defineConfig({
     },
   },
   cleanUrls: true,
+  rewrites: {
+
+  },
+  vite: {
+    resolve: {
+      alias: [
+        {
+          find: /^.*\/VPSidebarItem\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./components/custom-sidebar-item.vue', import.meta.url),
+          ),
+        },
+      ],
+    },
+    plugins: [
+      Components({
+        resolvers: [
+          IconsResolver({
+            prefix: 'icon',
+            enabledCollections: ['tabler'],
+          }),
+        ],
+      }),
+
+      Icons({
+        autoInstall: true,
+        compiler: 'vue3',
+      }),
+    ],
+  },
+
 })

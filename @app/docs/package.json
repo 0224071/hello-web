@@ -13,8 +13,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@iconify-json/tabler": "^1.1.99",
     "sass": "^1.75.0",
+    "unplugin-icons": "^0.18.5",
+    "unplugin-vue-components": "^0.26.0",
     "vitepress": "^1.1.3",
+    "vitepress-sidebar": "^1.22.0",
     "vue": "^3.4.21"
   }
 }

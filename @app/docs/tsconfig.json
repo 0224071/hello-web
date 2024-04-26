@@ -20,12 +20,16 @@
       "forceConsistentCasingInFileNames": true,
       "isolatedModules": true,
       "verbatimModuleSyntax": true,
-      "skipLibCheck": true
+      "skipLibCheck": true,
+      "types": [
+        "unplugin-icons/types/vue",
+      ]
     },
     "include": [
       "**/.vitepress/**/*.ts",
       "**/.vitepress/**/*.mts",
-      "**/.vitepress/**/*.vue"
+      "**/.vitepress/**/*.vue",
+      "./components.d.ts"
     ],
     "exclude": [
       "node_modules"

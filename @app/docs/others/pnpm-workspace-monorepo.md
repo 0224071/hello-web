@@ -1,10 +1,10 @@
 # 使用 pnpm-workspace 建立 monorepo
 
-> pnpm-workspace 是 pnpm 的一個功能，可以讓我們在一個專案中管理多個 package 和 應用程式，也就是 monorepo。
+> **pnpm-workspace** 是 pnpm 的一個功能，可以讓我們在一個專案中管理多個 package 和 應用程式，也就是 **monorepo**。
 
 ## 建立專案
 
-首先先建立一個空的 package.json
+首先先建立一個空的 **package.json**
 
 ```bash
 pnpm init
@@ -33,7 +33,7 @@ cd @app/web-spa
 pnpm create vite .
 ```
 
-> 這邊是選擇 vite 來建立一個 vue3 的專案，並且使用 Typescript 開發
+> 這邊是選擇 **vite** 來建立一個 **vue3** 的專案，並且使用 **Typescript** 開發
 
 選擇完成後，按造提示輸入 `pnpm install` 然後 `pnpm dev` 就可以開始開發了:100:
 
@@ -58,7 +58,7 @@ pnpm create vite .
 }
 ```
 
-效果上 `pnpm web-spa dev` 跟切換到 @app/web-spa 資料夾下執行 `pnpm dev` 是一樣的
+效果上 `pnpm web-spa dev` 跟切換到 **@app/web-spa** 資料夾下執行 `pnpm dev` 是一樣的
 
 ---
 
@@ -86,11 +86,11 @@ pnpm create vite .
 └── package.json
 ```
 
-點開 @app/web-spa 裡面的 node_modules 可以看到都是用 **軟連結(symlinks)** 指向根目錄的 node_modules ，也就是如果有其他的 package 或應用程式也使用到相同的套件，pnpm 會自動幫我們建立軟連結，以節省空間。
+點開 **@app/web-spa** 裡面的 node_modules 可以看到都是用 **軟連結(symlinks)** 指向根目錄的 node_modules ，也就是如果有其他的 package 或應用程式也使用到相同的套件，pnpm 會自動幫我們建立軟連結，以節省空間。
 
 > ![node_modules image](./assets/images/pnpm-monorepo-node_modules.png)
 
-還能看到 pnpm-lock.yaml 只有根目錄有，這是因為 pnpm 會自動幫我們管理所有的 package 的版本，所以只需要一個 lock file 就夠了。
+還能看到 **pnpm-lock.yaml** 只有根目錄有，這是因為 pnpm 會自動幫我們管理所有的 package 的版本，所以只需要一個 lock file 就夠了。
 ::
 
 ## 共用的 packages
@@ -99,7 +99,7 @@ pnpm create vite .
 
 ### 建立 typescript-config
 
-在 packages 資料夾下建立 typescript-config 資料夾，再建立一個 package.json
+在 packages 資料夾下建立 typescript-config 資料夾，再建立一個 **package.json**
 
 ```bash
 mkdir packages/typescript-config
@@ -129,6 +129,8 @@ pnpm init
 :bulb:@app 通常是用來放應用程式，就不會當作 package 來發布，但是你也可以根據自己的實際需求來命名
 :::
 
+---
+
 接著安裝 typescript
 
 ```bash
@@ -137,9 +139,9 @@ pnpm add -D typescript
 
 安裝好後，可以把我們一開始建立的前端專案的 **tsconfig.json** 和 **tsconfig.node.json** 移過來
 
-**tsconfig.json**
+::: code-group
 
-```json
+```json [tsconfig.json]
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -168,9 +170,7 @@ pnpm add -D typescript
 
 ```
 
-**tsconfig.node.json**
-
-```json
+```json [tsconfig.node.json]
 {
   "compilerOptions": {
     "composite": true,
@@ -185,6 +185,9 @@ pnpm add -D typescript
 
 ```
 
+:::
+
+> [!NOTE]
 > include 和 references 先拿掉，後面會再加上去
 
 ---
@@ -195,7 +198,7 @@ pnpm add -D typescript
 pnpm web-spa add -D @hello-web/typescript-config
 ```
 
-> 安裝完後會在 package.json 裡看到 `"@hello-web/typescript-config": "workspace:^"`，代表版本會跟工作區的 package 連結起來。如果需要其他用法，可以參考[官方文件](https://pnpm.io/workspaces)
+> 安裝完後會在 **package.json** 裡看到 `"@hello-web/typescript-config": "workspace:^"`，代表版本會跟工作區的 package 連結起來。如果需要其他用法，可以參考[官方文件](https://pnpm.io/workspaces)
 
 我們切換到前端專案後再把剛剛移過去的 **tsconfig.json** 和 **tsconfig.node.json** 新增起來，內容改成
 **tsconfig.json**
@@ -217,13 +220,14 @@ pnpm web-spa add -D @hello-web/typescript-config
 }
 ```
 
+> [!NOTE]
 > 剛剛移掉的 include 和 references 再加回來。
 >
 > 有其他的 package 或應用程式也需要使用 typescript-config 的設定，只需要安裝這個 package 就可以了，剩下則根據實際專案的需求來新增。
 
 這時在執行一次前端專案，都沒問題那就可以下一步了
 
-### 建立 eslint-config
+### eslint-config
 
 大部分步驟都跟上面一樣，這邊就不再贅述
 
@@ -318,17 +322,158 @@ pnpm lint
 
 如果成功可以再下一步囉
 
-### 建立 tailwind-config
+### tailwind-config
 
-## 建立多個應用程式
+新增一個 tailwind-config 的 package，加入 **package.json**
 
-### 建立 ui-library
+```bash
+mkdir packages/tailwind-config
+cd packages/tailwind-config
+pnpm init
+```
 
-### 建立 nuxt專案
+**package.json**
 
-### 建立 vitepress 應用
+```json
+{
+  "name": "@hello-web/tailwind-config", // [!code focus]
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+```
 
-### 建立 storybook
+安裝 **tailwindcss**、**postcss**、**autoprefixer**
+
+```bash
+pnpm add -D tailwindcss postcss autoprefixer
+```
+
+建立 **tailwind.config.js**、**postcss.config.js**
+
+```bash
+npx tailwindcss init -p
+```
+
+在 **tailwind.config.js** 加入 vue 專案會用到的路徑，和自定義的顏色
+
+```js {3-6,10-12}
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: '#3490dc',
+        secondary: '#ffed4a',
+        danger: '#e3342f',
+      },
+    },
+  },
+  plugins: [],
+}
+```
+
+在前端專案安裝 tailwind-config
+
+```bash
+pnpm web-spa add -D @hello-web/tailwind-config
+```
+
+新增 **postcss.config.cjs** 和 **tailwind.config.cjs**
+::: tip
+這邊之所以用 **cjs** 是因為前端專案是用 type: module 的方式，為了避免報錯所以要指定成 commonjs
+:::
+::: code-group
+
+```js [postcss.config.cjs]
+module.exports = require('@hello-web/tailwind-config/postcss.config')
+```
+
+```js{3,6-10} [tailwind.config.cjs]
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  presets: [require('@hello-web/tailwind-config/tailwind.config')],
+  theme: {
+    extend: {
+      colors: {
+        custom: {
+          100: '#123156',
+        },
+      },
+    },
+  },
+  plugins: [],
+}
+
+```
+
+:::
+
+> 這邊用 presets 把共用的設定檔引入，當作基本設定，然後可以再加上自己的設定
+
+在 **./@app/web-spa/src/styles/tailwind.css** 引入 tailwind
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+從 **main.ts** 引入
+
+```ts
+import { createApp } from 'vue'
+import './styles/tailwind.css' // [!code focus]
+import App from './App.vue'
+
+createApp(App).mount('#app')
+```
+
+```vue
+<!-- App.vue -->
+<template>
+  <ul class="mt-10 p-5 w-full px flex justify-between text-center bg-gray-300">
+    <li>
+      <div>custom-100</div>
+      <div class="inline-block w-[40px] h-[40px] bg-custom-100" />
+    </li>
+    <li>
+      <div>primary</div>
+      <div class="inline-block w-[40px] h-[40px] bg-primary" />
+    </li>
+    <li>
+      <div>secondary</div>
+      <div class="inline-block w-[40px] h-[40px] bg-secondary" />
+    </li>
+    <li>
+      <div>danger</div>
+      <div class="inline-block w-[40px] h-[40px] bg-danger" />
+    </li>
+  </ul>
+</template>
+```
+
+執行 `pnpm web-spa dev` 看看有沒有成功，可以的話就下一步囉
+
+### ui-library
+
+## 建立應用程式
+
+### nuxt 專案
+
+### vitepress 應用
+
+### storybook
 
 ## [Playground](https://stackblitz.com/edit/stackblitz-starters-nyfcpg?file=package.json)
 
@@ -336,3 +481,4 @@ pnpm lint
 
 - [pnpm 管理專案 - monorepo](https://tzulinchang.medium.com/pnpm-%E7%AE%A1%E7%90%86%E5%B0%88%E6%A1%88-monorepo-96babcd1f1a6)
 - [TypeScript Monorepo Setup with PNPM Workspaces, Vite, VueJS and TailwindCSS](https://www.youtube.com/watch?v=HM03XGVlRXI)
+- [Create a Custom Component Library with Vue & Tailwind CSS](https://www.youtube.com/watch?v=_k-ZrEWc-vQ)
