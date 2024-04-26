@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
+/** 文章選單 */
 import { generateSidebar } from 'vitepress-sidebar'
 
 /**
@@ -38,6 +39,7 @@ export default defineConfig({
     ['meta', { property: 'og:url', content: 'https://hello-web-docs-nu.vercel.app/' }],
   ],
   themeConfig: {
+
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首頁', link: '/' },
@@ -47,10 +49,13 @@ export default defineConfig({
     sidebar: generateSidebar(vitepressSidebarOptions),
 
     // TOC
-    outline: 'deep',
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
-    ],
+    outline: {
+      level: 'deep',
+      label: '目錄',
+    },
+    // socialLinks: [
+    //   { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+    // ],
     /** 本地搜尋 */
     search: {
       provider: 'local',
@@ -63,7 +68,7 @@ export default defineConfig({
     },
     /** 上次更新時間 */
     lastUpdated: {
-      text: 'Updated at',
+      text: '上次更新',
       formatOptions: {
         dateStyle: 'full',
         timeStyle: 'medium',
@@ -74,6 +79,11 @@ export default defineConfig({
       prev: '前一篇',
       next: '下一篇',
     },
+    /** 外部連結圖示 */
+    externalLinkIcon: true,
+    darkModeSwitchTitle: '切換深色模式',
+    lightModeSwitchTitle: '切換淺色模式',
+    lastUpdatedText: '上次更新',
   },
   cleanUrls: true,
   rewrites: {
