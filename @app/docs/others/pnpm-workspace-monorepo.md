@@ -88,7 +88,7 @@ pnpm create vite .
 
 點開 **@app/web-spa** 裡面的 node_modules 可以看到都是用 **軟連結(symlinks)** 指向根目錄的 node_modules ，也就是如果有其他的 package 或應用程式也使用到相同的套件，pnpm 會自動幫我們建立軟連結，以節省空間。
 
-> ![node_modules image](./assets/images/pnpm-monorepo-node_modules.png)
+> ![node_modules image](../assets/images/pnpm-monorepo-node_modules.png)
 
 還能看到 **pnpm-lock.yaml** 只有根目錄有，這是因為 pnpm 會自動幫我們管理所有的 package 的版本，所以只需要一個 lock file 就夠了。
 ::
