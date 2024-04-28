@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import { type FunctionalComponent, computed } from 'vue'
-import type { DefaultTheme } from 'vitepress/theme'
+import { type FunctionalComponent, computed } from "vue";
+import type { DefaultTheme } from "vitepress/theme";
 
-import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
-import VPSidebarItem from 'vitepress/dist/client/theme-default/components/VPSidebarItem.vue'
+import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import VPSidebarItem from "vitepress/dist/client/theme-default/components/VPSidebarItem.vue";
 
-import { useSidebarControl } from 'vitepress/dist/client/theme-default/composables/sidebar.js'
-import { TechEnum } from '../enums/tech-enum'
-import TablerBrandVue from '~icons/tabler/brand-vue'
-import TablerBrandNuxt from '~icons/tabler/brand-nuxt'
-import TablerBrandJavascript from '~icons/tabler/brand-javascript'
-import TablerBrandVite from '~icons/tabler/brand-vite'
-import TablerBrandCodepen from '~icons/tabler/brand-codepen'
+import { useSidebarControl } from "vitepress/dist/client/theme-default/composables/sidebar.js";
+import { TechEnum } from "../enums/tech-enum";
+import TablerBrandVue from "~icons/tabler/brand-vue";
+import TablerBrandNuxt from "~icons/tabler/brand-nuxt";
+import TablerBrandJavascript from "~icons/tabler/brand-javascript";
+import TablerBrandVite from "~icons/tabler/brand-vite";
+import TablerBrandCodepen from "~icons/tabler/brand-codepen";
+import TablerBrandTypescript from "~icons/tabler/brand-typescript";
 
 const props = defineProps<{
-  item: DefaultTheme.SidebarItem
-  depth: number
-}>()
+  item: DefaultTheme.SidebarItem;
+  depth: number;
+}>();
 
 const {
   collapsed,
@@ -26,99 +27,105 @@ const {
   hasActiveLink,
   hasChildren,
   toggle,
-} = useSidebarControl(computed(() => props.item))
+} = useSidebarControl(computed(() => props.item));
 
 const techMap: Record<
   TechEnum,
   {
-    icon: FunctionalComponent
-    iconStyle: Record<string, string>
+    icon: FunctionalComponent;
+    iconStyle: Record<string, string>;
   }
 > = {
   [TechEnum.VUE]: {
     icon: TablerBrandVue,
     iconStyle: {
-      fontSize: '1.1em',
-      color: '#4FC08D',
+      fontSize: "1.1em",
+      color: "#4FC08D",
     },
   },
   [TechEnum.NUXT]: {
     icon: TablerBrandNuxt,
     iconStyle: {
-      fontSize: '1.1em',
-      color: '#00C58E',
+      fontSize: "1.1em",
+      color: "#00C58E",
     },
   },
   [TechEnum.VANILLA]: {
     icon: TablerBrandJavascript,
     iconStyle: {
-      fontSize: '1.1em',
-      color: '#F0DB4F',
+      fontSize: "1.1em",
+      color: "#F0DB4F",
+    },
+  },
+  [TechEnum.TYPESCRIPT]: {
+    icon: TablerBrandTypescript,
+    iconStyle: {
+      fontSize: "1.1em",
+      color: "#3178C6",
     },
   },
   [TechEnum.VITE]: {
     icon: TablerBrandVite,
     iconStyle: {
-      fontSize: '1.1em',
-      color: '#646CFF',
+      fontSize: "1.1em",
+      color: "#646CFF",
     },
   },
   [TechEnum.OTHERS]: {
     icon: TablerBrandCodepen,
     iconStyle: {
-      fontSize: '1.1em',
-      color: '#444',
+      fontSize: "1.1em",
+      color: "#444",
     },
   },
-}
+};
 
 function getTechIconComponent(folderName: string) {
   const tech = Object.entries(techMap).find(([key]) => {
-    return folderName.toLowerCase().includes(key.toLowerCase())
-  })?.[1]
+    return folderName.toLowerCase().includes(key.toLowerCase());
+  })?.[1];
 
-  return tech?.icon || 'div'
+  return tech?.icon || "div";
 }
 function getTechIconStyle(folderName: string) {
   const tech = Object.entries(techMap).find(([key]) => {
-    return folderName.toLowerCase().includes(key.toLowerCase())
-  })?.[1]
+    return folderName.toLowerCase().includes(key.toLowerCase());
+  })?.[1];
 
-  return tech?.iconStyle || {}
+  return tech?.iconStyle || {};
 }
 
-const sectionTag = computed(() => (hasChildren.value ? 'section' : `div`))
+const sectionTag = computed(() => (hasChildren.value ? "section" : `div`));
 
-const linkTag = computed(() => (isLink.value ? 'a' : 'div'))
+const linkTag = computed(() => (isLink.value ? "a" : "div"));
 
 const textTag = computed(() => {
   return !hasChildren.value
-    ? 'p'
+    ? "p"
     : props.depth + 2 === 7
-      ? 'p'
-      : `h${props.depth + 2}`
-})
+      ? "p"
+      : `h${props.depth + 2}`;
+});
 
-const itemRole = computed(() => (isLink.value ? undefined : 'button'))
+const itemRole = computed(() => (isLink.value ? undefined : "button"));
 
 const classes = computed(() => [
   [`level-${props.depth}`],
   { collapsible: collapsible.value },
   { collapsed: collapsed.value },
-  { 'is-link': isLink.value },
-  { 'is-active': isActiveLink.value },
-  { 'has-active': hasActiveLink.value },
-])
+  { "is-link": isLink.value },
+  { "is-active": isActiveLink.value },
+  { "has-active": hasActiveLink.value },
+]);
 
 function onItemInteraction(e: MouseEvent | Event) {
-  if ('key' in e && e.key !== 'Enter')
-    return
+  if ("key" in e && e.key !== "Enter") return;
 
-  !props.item.link && toggle()
+  !props.item.link && toggle();
 }
 
 function onCaretClick() {
-  props.item.link && toggle()
+  props.item.link && toggle();
 }
 </script>
 

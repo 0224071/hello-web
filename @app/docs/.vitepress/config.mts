@@ -14,7 +14,8 @@ const vitepressSidebarOptions = {
   // 使用文件標題作為標題
   useTitleFromFileHeading: true,
   // 排除文件
-  excludeFiles: ['404.md'],
+  excludeFiles: ['404.md','todo.md'],
+
   // 摺疊選單
   collapsed: false,
   // 摺疊根組。有 highlighted 效果

@@ -4,6 +4,7 @@ export enum TechEnum {
   VUE = 'Vue',
   //   SVELTE = 'Svelte',
   VANILLA = 'Vanilla',
+  TYPESCRIPT = 'TypeScript',
   //   WEB_COMPONENTS = 'Web Components',
   VITE = 'Vite',
   OTHERS = 'Others',
