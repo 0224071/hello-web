@@ -22,7 +22,10 @@ const vitepressSidebarOptions = {
   rootGroupCollapsed: false,
   // 根據標題數字排序
   sortMenusOrderNumericallyFromTitle: true,
+  // 標題大寫
   capitalizeFirst: true,
+  // 文件根目錄
+  documentRootPath: 'src',
 }
 
 // https://vitepress.dev/reference/site-config
@@ -30,6 +33,7 @@ export default defineConfig({
   title: 'Hello Web',
   titleTemplate: ':title - Hello Web',
   description: '網頁技術文章',
+  srcDir: 'src',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['link', { rel: 'manifest', href: '/site.webmanifest' }],
@@ -86,7 +90,7 @@ export default defineConfig({
     lightModeSwitchTitle: '切換淺色模式',
     lastUpdatedText: '上次更新',
   },
-  cleanUrls: true,
+  //   cleanUrls: true,
   vite: {
     resolve: {
       alias: [

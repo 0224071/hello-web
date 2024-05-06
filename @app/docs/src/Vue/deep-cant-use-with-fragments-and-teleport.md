@@ -1,12 +1,12 @@
 <script lang="ts" setup>
     import { ref } from "vue"
 
-    import DemoWrapper from "../../web-static/src/components/doc-ex/wrapper.vue"
-    import NoDeepFragments from "../../web-static/src/components/doc-ex/deep-cant-use/no-deep-child-fragments.vue"
-    import DeepFragments1 from "../../web-static/src/components/doc-ex/deep-cant-use/deep-child-fragments-1.vue"
-    import DeepFragments2 from "../../web-static/src/components/doc-ex/deep-cant-use/deep-child-fragments-2.vue"
-    import DeepTeleport1 from "../../web-static/src/components/doc-ex/deep-cant-use/deep-child-teleport-1.vue"
-    import NoDeepChildTeleport from "../../web-static/src/components/doc-ex/deep-cant-use/no-deep-child-teleport.vue"
+    import DemoWrapper from "../../../web-static/src/components/doc-ex/wrapper.vue"
+    import NoDeepFragments from "../../../web-static/src/components/doc-ex/deep-cant-use/no-deep-child-fragments.vue"
+    import DeepFragments1 from "../../../web-static/src/components/doc-ex/deep-cant-use/deep-child-fragments-1.vue"
+    import DeepFragments2 from "../../../web-static/src/components/doc-ex/deep-cant-use/deep-child-fragments-2.vue"
+    import DeepTeleport1 from "../../../web-static/src/components/doc-ex/deep-cant-use/deep-child-teleport-1.vue"
+    import NoDeepChildTeleport from "../../../web-static/src/components/doc-ex/deep-cant-use/no-deep-child-teleport.vue"
 
     const isShow1 = ref(false)
     const isShow2 = ref(false)

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  import Css1px from "../../web-static/src/components/doc-ex/css-1px/index.vue"
-  import Example1 from "../../web-static/src/components/doc-ex/css-1px/example1.vue"
-  import Example2 from "../../web-static/src/components/doc-ex/css-1px/example2.vue"
-  import DemoWrapper from "../../web-static/src/components/doc-ex/wrapper.vue"
+  import Css1px from "../../../web-static/src/components/doc-ex/css-1px/index.vue"
+  import Example1 from "../../../web-static/src/components/doc-ex/css-1px/example1.vue"
+  import Example2 from "../../../web-static/src/components/doc-ex/css-1px/example2.vue"
+  import DemoWrapper from "../../../web-static/src/components/doc-ex/wrapper.vue"
 </script>
 
 # 解決 CSS 在 1px 粗細不一樣的問題
