@@ -12,7 +12,7 @@ hero:
       link: /vue/deep-cant-use-with-fragments-and-teleport
     - theme: alt
       text: 其他
-      link: /404
+      link: /not-found
 
 features:
 #   - title: 這個人很懶，這裡甚麼都沒寫

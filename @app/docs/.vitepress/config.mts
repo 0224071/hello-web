@@ -14,7 +14,7 @@ const vitepressSidebarOptions = {
   // 使用文件標題作為標題
   useTitleFromFileHeading: true,
   // 排除文件
-  excludeFiles: ['404.md', 'todo.md'],
+  excludeFiles: ['not-found.md', 'todo.md'],
 
   // 摺疊選單
   collapsed: false,
