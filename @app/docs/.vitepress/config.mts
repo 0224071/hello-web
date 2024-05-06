@@ -86,21 +86,18 @@ export default defineConfig({
     lightModeSwitchTitle: '切換淺色模式',
     lastUpdatedText: '上次更新',
   },
-  cleanUrls: true,
-  rewrites: {
-
-  },
+  //   cleanUrls: true,
   vite: {
-    // resolve: {
-    //   alias: [
-    //     {
-    //       find: /^.*\/VPSidebarItem\.vue$/,
-    //       replacement: fileURLToPath(
-    //         new URL('./components/custom-sidebar-item.vue', import.meta.url),
-    //       ),
-    //     },
-    //   ],
-    // },
+    resolve: {
+      alias: [
+        {
+          find: /^.*\/VPSidebarItem\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./components/custom-sidebar-item.vue', import.meta.url),
+          ),
+        },
+      ],
+    },
     plugins: [
       Components({
         resolvers: [
