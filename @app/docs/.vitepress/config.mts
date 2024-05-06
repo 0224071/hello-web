@@ -44,7 +44,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首頁', link: '/' },
-      { text: '技術文章', link: '/deep-cant-use-with-fragments-and-teleport' },
+      { text: '技術文章', link: '/Vue/deep-cant-use-with-fragments-and-teleport' },
     ],
     // 文章側邊欄
     sidebar: generateSidebar(vitepressSidebarOptions),
@@ -91,16 +91,16 @@ export default defineConfig({
 
   },
   vite: {
-    resolve: {
-      alias: [
-        {
-          find: /^.*\/VPSidebarItem\.vue$/,
-          replacement: fileURLToPath(
-            new URL('./components/custom-sidebar-item.vue', import.meta.url),
-          ),
-        },
-      ],
-    },
+    // resolve: {
+    //   alias: [
+    //     {
+    //       find: /^.*\/VPSidebarItem\.vue$/,
+    //       replacement: fileURLToPath(
+    //         new URL('./components/custom-sidebar-item.vue', import.meta.url),
+    //       ),
+    //     },
+    //   ],
+    // },
     plugins: [
       Components({
         resolvers: [
