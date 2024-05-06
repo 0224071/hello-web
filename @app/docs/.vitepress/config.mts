@@ -86,7 +86,7 @@ export default defineConfig({
     lightModeSwitchTitle: '切換淺色模式',
     lastUpdatedText: '上次更新',
   },
-  //   cleanUrls: true,
+  cleanUrls: true,
   vite: {
     resolve: {
       alias: [
