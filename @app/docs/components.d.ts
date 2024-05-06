@@ -7,8 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    'IconTabler:brandNuxt': typeof import('~icons/tabler/brand-nuxt')['default']
-    IconTablerBrandNuxt: typeof import('~icons/tabler/brand-nuxt')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
