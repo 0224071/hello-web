@@ -48,7 +48,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首頁', link: '/' },
-      { text: '技術文章', link: '/vue/deep-cant-use-with-fragments-and-teleport' },
+      { text: '技術文章', link: '/Vue/deep-cant-use-with-fragments-and-teleport' },
     ],
     // 文章側邊欄
     sidebar: generateSidebar(vitepressSidebarOptions),
