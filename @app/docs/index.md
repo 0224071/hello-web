@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: 開始
-      link: /Vue/deep-cant-use-with-fragments-and-teleport
+      link: /vue/deep-cant-use-with-fragments-and-teleport
     - theme: alt
       text: 其他
       link: /not-found
