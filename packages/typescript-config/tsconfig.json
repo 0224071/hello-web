@@ -19,5 +19,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
+
+    /* TODO: include 和 references 可以用 ${configDir} 改寫 */
   }
 }

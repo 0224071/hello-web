@@ -8,7 +8,7 @@ export enum TechEnum {
   //   WEB_COMPONENTS = 'Web Components',
   VITE = 'Vite',
   OTHERS = 'Others',
-  //   CSS = 'CSS',
+  CSS = 'CSS',
   //   HTML = 'HTML',
   NUXT = 'Nuxt',
 }

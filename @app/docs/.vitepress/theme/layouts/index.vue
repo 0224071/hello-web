@@ -1,5 +1,3 @@
-<!-- .vitepress/theme/Layout.vue -->
-
 <script setup lang="ts">
 import { useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
@@ -48,6 +46,7 @@ provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
   <DefaultTheme.Layout />
 </template>
 
+<!-- eslint-disable-next-line vue-scoped-css/enforce-style-type -->
 <style lang="scss">
 ::view-transition-old(root),
 ::view-transition-new(root) {

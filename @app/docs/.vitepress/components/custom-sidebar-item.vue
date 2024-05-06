@@ -13,6 +13,7 @@ import TablerBrandJavascript from "~icons/tabler/brand-javascript";
 import TablerBrandVite from "~icons/tabler/brand-vite";
 import TablerBrandCodepen from "~icons/tabler/brand-codepen";
 import TablerBrandTypescript from "~icons/tabler/brand-typescript";
+import TablerBrandCss from "~icons/tabler/brand-css3";
 
 const props = defineProps<{
   item: DefaultTheme.SidebarItem;
@@ -36,6 +37,13 @@ const techMap: Record<
     iconStyle: Record<string, string>;
   }
 > = {
+  [TechEnum.CSS]: {
+    icon: TablerBrandCss,
+    iconStyle: {
+      fontSize: "1.1em",
+      color: "#2965f1",
+    },
+  },
   [TechEnum.VUE]: {
     icon: TablerBrandVue,
     iconStyle: {

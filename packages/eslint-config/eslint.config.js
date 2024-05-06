@@ -1,6 +1,8 @@
 // eslint.config.js
 import antfu from '@antfu/eslint-config'
+import eslintPluginVueScopedCSS from 'eslint-plugin-vue-scoped-css'
 
+/** https://github.com/antfu/eslint-config */
 export default antfu({
   // Enable stylistic formatting rules
   // stylistic: true,
@@ -39,7 +41,8 @@ export default antfu({
      */
     markdown: 'prettier',
   },
-}, {
+}, ...eslintPluginVueScopedCSS.configs['flat/recommended'], {
+
   // Remember to specify the file glob here, otherwise it might cause the vue plugin to handle non-vue files
   files: ['**/*.vue'],
   rules: {
@@ -57,7 +60,15 @@ export default antfu({
     ],
     // https://eslint.vuejs.org/rules/require-prop-types.html
     'vue/require-prop-types': 'error',
+
     // https://future-architect.github.io/eslint-plugin-vue-scoped-css/rules/enforce-style-type.html
-    // 'vue-scoped-css/enforce-style-type': 'error',
+    'vue-scoped-css/enforce-style-type': 'error',
+
+    // https://future-architect.github.io/eslint-plugin-vue-scoped-css/rules/no-unused-selector.html
+    'vue-scoped-css/no-unused-selector': 'off',
+
+    // https://future-architect.github.io/eslint-plugin-vue-scoped-css/rules/require-v-deep-argument.html
+    'vue-scoped-css/require-v-deep-argument': 'off',
+
   },
 })
